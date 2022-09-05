@@ -12,8 +12,16 @@
     </div>
 
     <div v-else>
-      <upload-section />
+      <upload-section @uploadSuccess="fileUploaded"/>
     </div>
   </div>
 </template>
 
+<script setup>
+  let hasUploaded = ref(false);
+
+  function fileUploaded(res) {
+    hasUploaded.value = true;
+    const data = res;
+  }
+</script>

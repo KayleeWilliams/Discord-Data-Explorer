@@ -19,3 +19,29 @@
         </div>
     </div>
 </template>
+
+<script setup>
+    let file = '';
+    let loading = false;
+    const emit = defineEmits(['uploadSuccess'])
+
+    const handleFile = (event) => {
+        file = event.target.files[0];
+    }
+
+    async function submitFile(){
+        loading = true;
+
+        let formData = new FormData();
+        formData.append('file', file);
+
+        let res = await fetch( 'http://localhost:3001/uploader', {
+            method: 'POST',
+            body: formData
+            
+        } );
+
+        console.log(res.data); 
+        emit('uploadSuccess', res.data)
+    }
+</script>

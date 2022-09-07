@@ -8,7 +8,7 @@
     </Head>
 
     <div v-if="hasUploaded">
-      <p> Uploaded </p>
+      <result-section :data="data" />
     </div>
 
     <div v-else>
@@ -19,9 +19,11 @@
 
 <script setup>
   let hasUploaded = ref(false);
+  let data = ref([]);
 
   function fileUploaded(res) {
+    data.value = res;
+    console.log(res);
     hasUploaded.value = true;
-    const data = res;
   }
 </script>

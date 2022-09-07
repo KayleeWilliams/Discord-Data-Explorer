@@ -25,7 +25,7 @@ def explore():
     # Populate server list
     for row in server_data:
         if len(server_data[row]) > 27: 
-            server_list.append((row, server_data[row][:27] + "...", 0))
+            server_list.append((row, server_data[row][:24] + "...", 0))
         else:
             server_list.append((row, server_data[row], 0))
 
@@ -89,7 +89,7 @@ def explore():
         if channel_data['type'] == 3:
             try:
                 if len(channel_data['name']) > 30:
-                    channel_data['name'] = channel_data['name'][:27] + "..."
+                    channel_data['name'] = channel_data['name'][:24] + "..."
                 group = [channel_data['id'], channel_data['name'], file_total_messages] # [:30]Trunacates itr
                 group_list.append(group)
             except:

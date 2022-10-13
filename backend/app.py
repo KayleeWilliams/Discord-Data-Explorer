@@ -1,9 +1,10 @@
 from flask import Flask, request, jsonify
 from werkzeug.utils import secure_filename
 from flask_cors import CORS, cross_origin
-import dataexplorer 
-import os 
-import pathlib 
+import os
+import pathlib
+from main import main
+
 app = Flask(__name__)
 
 # Temp storage
@@ -19,14 +20,13 @@ def upload_file():
       f = request.files['file']
       filename = secure_filename(f.filename)
       f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-      print("File Saved!")
-      result = dataexplorer.main(filename)
-      return jsonify(result)
+      return jsonify(main(filename))
+
 
 def after_request(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
-    
+
 
 if __name__ == '__main__':
    pathlib.Path(os.getcwd() + '/temp/').mkdir(parents=True, exist_ok=True)

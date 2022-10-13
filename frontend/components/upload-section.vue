@@ -11,9 +11,7 @@
 
             <button v-on:click="submitFile"
                     class="flex flex-row text-background bg-secondary hover:opacity-90 select-none text-lg px-6 py-4 rounded-r-lg drop-shadow-lg transition ease-in-out delay-150 duration-150 hover:-translate-y-1 hover:scale-105"> 
-                    <div>
-                        <div v-show="loading == true" class="rounded-full border-black border-t-black-100/0 w-6 h-6 border-4 border-solid animate-spin mr-2"></div>
-                    </div>
+                    <div v-show="isLoading == true" class="mr-2 rounded-full border-white border-t-black/0 w-6 h-6 border-4 border-solid animate-spin" />
                     Submit
                 </button>
         </div>
@@ -22,15 +20,15 @@
 
 <script setup>
     let file = '';
-    let loading = false;
-    const emit = defineEmits(['uploadSuccess'])
+    let isLoading = ref(false);
+    const emit = defineEmits(['uploadSuccess']);
 
     const handleFile = (event) => {
         file = event.target.files[0];
     }
 
     async function submitFile(){
-        loading = true;
+        isLoading.value = true;
 
         let formData = new FormData();
         formData.append('file', file);

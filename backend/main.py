@@ -70,11 +70,14 @@ class Discord:
         if recipient != self.user_id:
           for relationship in self.relationships:
             if relationship['id'] == recipient:
-              self.friends.append({'id': recipient, 'name': relationship['user']['username'], 'messages': file_messages})
+              self.friends.append({'id': recipient, 'name': relationship['user']['username'], 'messages': file_messages, 'avatar': relationship['user']['avatar']})
 
     # If groupchat
     if channel['type'] == 3 and 'name' in channel:
-      self.groups.append({'id': channel['id'], 'name': channel['name'], 'messages': file_messages})
+      if channel['name'] != None: 
+        self.groups.append({'id': channel['id'], 'name': channel['name'], 'messages': file_messages})
+      else: 
+        self.groups.append({'id': channel['id'], 'name': 'Unnamed Group', 'messages': file_messages})
 
   def sort_data(self):
     self.friends = sorted(self.friends, key=lambda d: d['messages'],  reverse=True)

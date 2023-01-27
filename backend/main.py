@@ -15,6 +15,9 @@ class Discord:
     self.friends = []
     self.servers = []
     self.groups = []
+    self.browsers = {}
+    self.events = {}
+
 
   # Extract the Zip file
   def extract_data(self, filename):
@@ -79,6 +82,23 @@ class Discord:
       else: 
         self.groups.append({'id': channel['id'], 'name': 'Unnamed Group', 'messages': file_messages})
 
+  def get_analytics(self):
+    for file in glob(f'temp/{self.folder}/package/activity/analytics/*.json', recursive=True):
+      with open(file) as f:
+        for line in f:
+          data = json.loads(line)
+          if data['event_type'] in self.events:
+            self.events[data['event_type']] += 1
+          else:
+            self.events[data['event_type']] = 1
+
+          # Get the browsers the user uses
+          if "browser" in data: 
+            if data['browser'] in self.browsers:
+              self.browsers[data['browser']] += 1
+            else:
+              self.browsers[data['browser']] = 1
+    
   def sort_data(self):
     self.friends = sorted(self.friends, key=lambda d: d['messages'],  reverse=True)
     self.servers = sorted(self.servers, key=lambda d: d['messages'],  reverse=True)
@@ -87,6 +107,7 @@ class Discord:
   def get_data(self):
     self.get_user()
     self.get_servers()
+    self.get_analytics()
 
     for file in glob(f'temp/{self.folder}/package/messages/**/*.csv', recursive=True):
       self.file_data(file)
@@ -102,6 +123,8 @@ class Discord:
       'friends': self.friends,
       'servers': self.servers,
       'groups': self.groups,
+      'browsers': self.browsers,
+      'events': self.events
     }
 
 def main(filename):

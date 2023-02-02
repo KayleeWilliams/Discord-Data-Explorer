@@ -17,6 +17,7 @@ class Discord:
     self.groups = []
     self.browsers = {}
     self.events = {}
+    self.payment_total = 0
 
 
   # Extract the Zip file
@@ -36,6 +37,10 @@ class Discord:
       data = json.load(user)
       self.user_id = data['id']
       self.relationships = data['relationships']
+
+      # Get payment total
+      for payment in data['payments']:
+        self.payment_total += payment['amount']
 
   # Get all the servers
   def get_servers(self):
@@ -124,7 +129,8 @@ class Discord:
       'servers': self.servers,
       'groups': self.groups,
       'browsers': self.browsers,
-      'events': self.events
+      'events': self.events,
+      'payment_total': self.payment_total
     }
 
 def main(filename):

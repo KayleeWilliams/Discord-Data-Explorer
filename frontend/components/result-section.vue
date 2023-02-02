@@ -4,9 +4,10 @@
         <BrowserChart class="col-start-2 row-start-4 col-span-2" :data="data" />
 
         <div class="col-start-4 col-span-1 row-start-4 flex flex-col gap-4">
-          <single-container class="col-start-2 row-start-5" title="Total Messages" :value="data.total_messages"/>
-          <single-container class="col-start-3 row-start-5" title="Calls Started" :value="data.events['start_call']"/>
-          <single-container class="col-start-4 row-start-5" title="Voice Channels Joined" :value="data.events['join_voice_channel']"/>
+          <single-container title="Total Messages" :value="data.total_messages"/>
+          <single-container title="Money Spent" :value="moneySpent"/>
+          <single-container title="Calls Started" :value="data.events['start_call']"/>
+          <single-container title="Voice Channels Joined" :value="data.events['join_voice_channel']"/>
         </div>
         
         <!-- <list-container class="col-start-2 row-start-6 col-span-1" title="Top Friends" :list="data.friends"/>
@@ -24,6 +25,11 @@
 export default {
   props: {
     data: Object,
+  },
+  computed: {
+    moneySpent() {
+      return `$${this.data.payment_total / 100}`;
+    }
   }
 }
 </script>

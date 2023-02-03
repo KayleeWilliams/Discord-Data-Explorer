@@ -1,6 +1,6 @@
 <template>
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg h-fit">
-      <h3 class="text-background text-center font-bold mb-2"> Favourite Browsers </h3>
+      <h3 class="text-background font-bold mb-2"> Favourite Browsers </h3>
       <Doughnut :data="chartData" :options="options" />
     </div>
 </template>

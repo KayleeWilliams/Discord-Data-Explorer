@@ -1,7 +1,16 @@
 <template>
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg">
-      <h3 class="text-background text-center font-bold mb-2"> Top Messages </h3>
-      <Bar :data="chartData" :options="options" />
+      <div class="flex flex-row justify-between items-center">
+        <div class="w-10 h-10"/>
+        <h3 class="text-background text-center font-bold mb-2"> Top Messages </h3>
+        <button
+          type="button"
+          class="relative inline-flex items-center px-2 py-2 bg-background focus:z-10 active:bg-gray-100 transition ease-in-out duration-150 rounded-full float-right"
+          @click="$emit('messageToggle')">
+          <svg class="text-secondary w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4v11H4zm12 4h4v7h-4zm-6-9h4v16h-4z"></path></svg>  
+        </button>
+      </div>
+      <Bar :data="chartData" :options="options" class="w-full"/>
     </div>
 </template>
 

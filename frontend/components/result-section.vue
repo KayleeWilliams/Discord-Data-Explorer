@@ -6,6 +6,7 @@
         <div class="col-start-4 col-span-1 row-start-4 flex flex-col gap-4">
           <single-container title="Total Messages" :value="data.total_messages"/>
           <single-container title="Money Spent" :value="moneySpent"/>
+          <single-container title="Predicted Age" :value="data.predicted_age"/>
           <single-container title="Calls Started" :value="data.events['start_call']"/>
           <single-container title="Voice Channels Joined" :value="data.events['join_voice_channel']"/>
 

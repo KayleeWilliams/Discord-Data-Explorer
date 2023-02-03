@@ -18,6 +18,7 @@ class Discord:
     self.browsers = {}
     self.events = {}
     self.payment_total = 0
+    self.predicted_age = "Unknown"
 
 
   # Extract the Zip file
@@ -58,6 +59,16 @@ class Discord:
       messages = csv.DictReader(mf)
       for row in messages:
         file_messages += 1
+        
+        #  if atatchment contains "IMG" in string
+        # if "IMG" in row['Attachments']:
+        #   print(row)
+
+        # if row['Timestamp'][:10] == "2022-12-13":
+        #   print(row)
+          # with open(f'temp/messages.csv', 'a') as f:
+          #   f.write(
+          #       f"{row['Timestamp']},{row['Contents']},{row['Attachments']}")
 
     self.total_messages += file_messages 
 
@@ -89,21 +100,40 @@ class Discord:
 
   def get_analytics(self):
     for file in glob(f'temp/{self.folder}/package/activity/analytics/*.json', recursive=True):
+      el = []
       with open(file) as f:
         for line in f:
           data = json.loads(line)
-          if data['event_type'] in self.events:
-            self.events[data['event_type']] += 1
-          else:
-            self.events[data['event_type']] = 1
+
+          # with open(f'temp/e.json', 'a') as e:
+          #   for time in ['_day_utc', 'day_pt', 'timestamp', "_hour_utc", "_hour_pt", "_ingest_ts"]:
+          #     if time in data.keys():
+          #       if data[time][:10] == "2022-09-22":
+          #           el.append(data)
+          #           break
+          
+          # Get the predicted age 
+          if "predicted_age" in data.keys():
+            self.predicted_age = data['predicted_age']
+
+          # Get the events
+          if "event_type" in data.keys():
+            if data['event_type'] in self.events:
+              self.events[data['event_type']] += 1
+            else:
+              self.events[data['event_type']] = 1
 
           # Get the browsers the user uses
-          if "browser" in data: 
+          if "browser" in data.keys(): 
             if data['browser'] in self.browsers:
               self.browsers[data['browser']] += 1
             else:
               self.browsers[data['browser']] = 1
-    
+      
+      # with open('temp/e.json', 'w') as e:
+      #   json.dump(el, e, indent=4)
+
+
   def sort_data(self):
     self.friends = sorted(self.friends, key=lambda d: d['messages'],  reverse=True)
     self.servers = sorted(self.servers, key=lambda d: d['messages'],  reverse=True)
@@ -130,7 +160,8 @@ class Discord:
       'groups': self.groups,
       'browsers': self.browsers,
       'events': self.events,
-      'payment_total': self.payment_total
+      'payment_total': self.payment_total,
+      'predicted_age': self.predicted_age,
     }
 
 def main(filename):

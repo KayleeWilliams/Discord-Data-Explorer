@@ -19,6 +19,7 @@ class Discord:
     self.events = {}
     self.payment_total = 0
     self.predicted_age = "Unknown"
+    self.message_analytics = {}
 
 
   # Extract the Zip file
@@ -129,7 +130,52 @@ class Discord:
               self.browsers[data['browser']] += 1
             else:
               self.browsers[data['browser']] = 1
-      
+
+          # Get the message analytics
+          # Get emojis sent 
+          # for emoji in ['emoji_unicode', 'emoji_custom', 'emoji_custom_external', 'emoji_animated']:
+          #   if emoji in data.keys():
+          #     if "emojis_sent" in self.message_analytics:
+          #       self.message_analytics["emojis_sent"] += data[emoji]
+          #     else:
+          #       self.message_analytics["emojis_sent"] = data[emoji]
+              
+          # Get @everyones
+          if "mention_everyone" in data.keys():
+            if data['mention_everyone'] in self.message_analytics:
+              if data['mention_everyone']:
+                if "everyone_mentions" in self.message_analytics:
+                  self.message_analytics["everyone_mentions"] += 1
+                else:
+                  self.message_analytics["everyone_mentions"] = 1
+
+          # Get total length of messages, and total words sent
+          if "length" in data.keys():
+            if "total_length" in self.message_analytics:
+              self.message_analytics["total_length"] += int(data['length'])
+            else:
+              self.message_analytics["total_length"] = int(data['length'])
+          
+          if "word_count" in data.keys():
+            if "total_words" in self.message_analytics:
+              self.message_analytics["total_words"] += int(data['word_count'])
+            else:
+              self.message_analytics["total_words"] = int(data['word_count'])
+
+          # Get messages sent to friends in dms
+          if "private" in data.keys() and "is_friend" in data.keys():
+            if data['private'] and data['is_friend']:
+              if "messages_to_friends" in self.message_analytics:
+                self.message_analytics["messages_to_friends"] += 1
+              else:
+                self.message_analytics["messages_to_friends"] = 1
+            
+            elif data['private'] and not data['is_friend']:
+              if "messages_to_nonfriends" in self.message_analytics:
+                self.message_analytics["messages_to_nonfriends"] += 1
+              else:
+                self.message_analytics["messages_to_nonfriends"] = 1
+
       # with open('temp/e.json', 'w') as e:
       #   json.dump(el, e, indent=4)
 
@@ -162,6 +208,7 @@ class Discord:
       'events': self.events,
       'payment_total': self.payment_total,
       'predicted_age': self.predicted_age,
+      'message_analytics': self.message_analytics
     }
 
 def main(filename):

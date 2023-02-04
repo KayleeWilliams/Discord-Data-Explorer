@@ -9,6 +9,8 @@
           <single-container title="Predicted Age" :value="data.predicted_age"/>
           <single-container title="Calls Started" :value="data.events['start_call']"/>
           <single-container title="Voice Channels Joined" :value="data.events['join_voice_channel']"/>
+          <single-container title="Average Words Sent" :value="averageWords"/>
+          <single-container title="Friends DM Ratio" :value="friendDMRatio"/>
 
         </div>
         
@@ -17,6 +19,8 @@
         <list-container class="col-start-4 row-start-3 col-span-1" v-show="!showMessageChart" title="Top Groups" :list="data.groups" :toggle="true" @messageToggle="messageToggle"/>
 
         <Analytics class="col-start-2 row-start-5 col-span-3" :data="data.events" />
+
+        <!-- <p class="bg-white"> {{ data.events }}</p> -->
 
     </div>
 </template>
@@ -33,8 +37,16 @@ export default {
   },
   computed: {
     moneySpent() {
-      return `$${this.data.payment_total / 100}`;
+      return `$${(this.data.payment_total / 100).toFixed(2)}`;
+    },
+    averageWords() {
+      return `${(this.data.message_analytics.total_words / this.data.total_messages).toFixed(2)}`;
+    },
+    friendDMRatio() {
+      // return the ratio of messages_to_friends to messages_to_nonfriends
+      return `${(this.data.message_analytics.messages_to_friends / this.data.message_analytics.messages_to_nonfriends).toFixed(2)}`;
     }
+
   },
   methods: {
     messageToggle() {

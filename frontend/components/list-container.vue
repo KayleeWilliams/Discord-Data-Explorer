@@ -19,12 +19,12 @@
         <!-- Loop through each friend -->
         <div class="text-left flex flex-row gap-4 h-12" v-for="(list, index) in list.slice(0, 5)" :key="index">
             <div class="bg-background text-primary flex justify-center items-center rounded-full shrink-0 w-12">
-                <img v-if="!list.error" :src="`https://cdn.discordapp.com/avatars/${list.id}/${list.avatar}`" class="w-full h-full rounded-full" @error="list.error = true" />
+                <img v-if="!list.error" :src="`https://cdn.discordapp.com/avatars/${list[0]}/${list[1]['avatar']}`" class="w-full h-full rounded-full" @error="list.error = true" />
                 <p v-if="list.error"> {{ index + 1 }} </p>
             </div>
             <div class="truncate">
-                <p class="font-medium inline"> {{ list.name }} </p>
-                <p class="font-normal block"> {{ list.messages }} Messages </p>
+                <p class="font-medium inline"> {{ list[1]["name"] }} </p>
+                <p class="font-normal block"> {{ list[1]["messages"]}} Messages </p>
             </div>
         </div>
     </div>

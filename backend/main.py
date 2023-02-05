@@ -3,6 +3,7 @@ from zipfile import ZipFile
 from glob import glob
 import json
 import csv
+import datetime
 from shutil import rmtree
 from random import randint
 
@@ -20,6 +21,10 @@ class Discord:
     self.payment_total = 0
     self.predicted_age = "Unknown"
     self.message_analytics = {}
+    self.activity_analytics = {
+     "hourly": {},
+     "weekly": {}
+    }
 
 
   # Extract the Zip file
@@ -106,6 +111,25 @@ class Discord:
         for line in f:
           data = json.loads(line)
 
+          # Get activity data
+
+          if "_hour_utc" in data.keys():
+            # Hourly  activity
+            hour = data['_hour_utc'].split('T')[1][:2]
+            if hour in self.activity_analytics['hourly']:
+              self.activity_analytics['hourly'][hour] += 1
+            else:
+              self.activity_analytics['hourly'][hour] = 1
+            
+            # Daily activity
+            date = datetime.datetime.strptime(data['_hour_utc'], "%Y-%m-%dT%H:%M:%S")
+            weekday = date.strftime("%A")
+
+            if weekday in self.activity_analytics['weekly']:
+              self.activity_analytics['weekly'][weekday] += 1
+            else:
+              self.activity_analytics['weekly'][weekday] = 1
+
           # with open(f'temp/e.json', 'a') as e:
           #   for time in ['_day_utc', 'day_pt', 'timestamp', "_hour_utc", "_hour_pt", "_ingest_ts"]:
           #     if time in data.keys():
@@ -183,7 +207,36 @@ class Discord:
   def sort_data(self):
     self.friends = sorted(self.friends, key=lambda d: d['messages'],  reverse=True)
     self.servers = sorted(self.servers, key=lambda d: d['messages'],  reverse=True)
-    self.groups = sorted(self.groups, key=lambda d: d['messages'],  reverse=True)
+    self.groups = sorted(self.groups, key=lambda d: d['messages'],  reverse=True)    
+
+    # Sort the activity analytics
+    sorted_weekdays = []
+    weekdays_order = ["Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday", "Sunday"]
+    for day in weekdays_order:
+      if day in self.activity_analytics['weekly']:
+          sorted_weekdays.append((day, self.activity_analytics['weekly'][day]))
+      else: 
+          sorted_weekdays.append((day, 0))
+    self.activity_analytics['weekly'] = sorted_weekdays
+
+    # Sort the hours
+    sorted_hours = []
+    hours_order = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
+    for hour in hours_order:
+      if int(hour) > 12:
+        display_hour = f"{int(hour) - 12}pm"
+      elif hour == 12:
+        display_hour = f"{int(hour)}pm"
+      else:
+        display_hour = f"{int(hour)}am"
+
+      if hour in self.activity_analytics['hourly']:  
+          sorted_hours.append((display_hour, int(self.activity_analytics['hourly'][hour])))
+      else: 
+          sorted_hours.append((hour, 0))
+    
+    self.activity_analytics['hourly'] = sorted_hours
+    
 
   def get_data(self):
     self.get_user()
@@ -208,7 +261,8 @@ class Discord:
       'events': self.events,
       'payment_total': self.payment_total,
       'predicted_age': self.predicted_age,
-      'message_analytics': self.message_analytics
+      'message_analytics': self.message_analytics,
+      'activity_analytics': self.activity_analytics
     }
 
 def main(filename):

@@ -10,6 +10,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'vue-chartjs'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
+let delayed = false;
 
 export default {
   props: {
@@ -32,6 +33,18 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (context.type === 'data' && context.mode === 'default' && !delayed) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
+        }
       }
     }
   },

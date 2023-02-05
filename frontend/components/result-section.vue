@@ -1,6 +1,6 @@
 <template>
     <div class="text-background text-center grid grid-cols-5 auto-rows-max gap-4 w-screen mb-8 ">
-        <BarChart class="col-start-2 row-start-3 col-span-3" :data="data" v-show="showMessageChart" @messageToggle="messageToggle" />
+        <BarChart class="col-start-2 row-start-3 col-span-3" :data="data" v-if="showMessageChart" @messageToggle="messageToggle" />
         <BrowserChart class="col-start-2 row-start-4 col-span-2 h-full" :data="data" />
 
         <div class="col-start-4 col-span-1 row-start-4 flex flex-col gap-4">
@@ -18,7 +18,8 @@
         <list-container class="col-start-3 row-start-3 col-span-1" v-show="!showMessageChart" title="Top Servers" :list="data.servers" :toggle="false" />
         <list-container class="col-start-4 row-start-3 col-span-1" v-show="!showMessageChart" title="Top Groups" :list="data.groups" :toggle="true" @messageToggle="messageToggle"/>
 
-        <Analytics class="col-start-2 row-start-5 col-span-3" :data="data.events" />
+        <ActivityChart class="col-start-2 row-start-5 col-span-2" :activity="data.activity_analytics" />
+        <Analytics class="col-start-2 row-start-6 col-span-3" :data="data.events" />
 
         <!-- <p class="bg-white"> {{ data.events }}</p> -->
 
@@ -46,7 +47,6 @@ export default {
       // return the ratio of messages_to_friends to messages_to_nonfriends
       return `${(this.data.message_analytics.messages_to_friends / this.data.message_analytics.messages_to_nonfriends).toFixed(2)}`;
     }
-
   },
   methods: {
     messageToggle() {

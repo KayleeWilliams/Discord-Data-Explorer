@@ -19,6 +19,7 @@ import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+let delayed = false;
 
 export default {
   props: {
@@ -54,19 +55,29 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
         plugins: {
           legend: {
             display: false
           }
         },
         scales: {
-          x: { ticks: { color: '#382D43' } },
+          x: { 
+            beginAtZero: true,
+            ticks: { color: '#382D43' }
+          },
           y: { ticks: { color: '#382D43' } },
+        },
+        animation: {
+          onComplete: () => {
+            delayed = true;
+          },
+          delay: (context) => {
+            let delay = 0;
+            if (context.type === 'data' && context.mode === 'default' && !delayed) {
+              delay = context.dataIndex * 300 + context.datasetIndex * 100;
+            }
+            return delay;
+          },
         }
       }
     }

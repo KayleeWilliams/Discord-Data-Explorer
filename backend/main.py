@@ -1,11 +1,12 @@
-import datetime
-import json
-import os
-import time
-from glob import glob
-from random import randint
-from shutil import rmtree
 from zipfile import ZipFile
+from shutil import rmtree
+from random import randint
+from glob import glob
+import time
+import os
+import json
+import datetime
+import ujson
 
 
 class Discord:
@@ -32,32 +33,41 @@ class Discord:
             "weekly": {}
         }
 
-
     # Extract the Zip file
+
     def extract_data(self, filename):
+        start_time = time.time()
         self.filepath = f'{os.getcwd()}/temp/{filename}'
         self.folder = f'{randint(0, 1000)}'
 
         with ZipFile(self.filepath, 'r') as zf:
-            zf.extractall(f'temp/{self.folder}')
+            for file in zf.namelist():
+                if file.startswith('package/account/user.json') or file.startswith('package/activity/analytics/') or file.startswith('package/servers/index.json') or file.startswith('package/messages/'):
+                    zf.extract(file, f'temp/{self.folder}')
 
         # Delete the Zip file
         os.remove(f'{os.getcwd()}/temp/{filename}')
-
+        print(f"Time to extract data: {time.time() - start_time} seconds")
 
     # Get User ID
+
     def get_user(self):
         with open(f'temp/{self.folder}/package/account/user.json') as user:
             data = json.load(user)
             self.user_id = data['id']
             self.relationships = data['relationships']
 
+            # Get friends
+            for friend in data['relationships']:
+                self.message_analytics['friends'][friend['id']] = {
+                    'name': friend['user']['username'], 'messages': 0, 'avatar': friend['user']['avatar']}
+
             # Get payment total
             for payment in data['payments']:
                 self.payment_total += payment['amount']
 
-
     # Get all the servers
+
     def get_servers(self):
         with open(f'temp/{self.folder}/package/servers/index.json') as index:
             servers = json.load(index)
@@ -65,13 +75,12 @@ class Discord:
                 self.message_analytics['servers'][row] = {
                     'name': servers[row], 'messages': 0}
 
-
     def get_analytics(self):
         # Open all the files
         for file in glob(f'temp/{self.folder}/package/activity/analytics/*.json', recursive=True):
             with open(file) as f:
                 for line in f:
-                    data = json.loads(line)
+                    data = ujson.loads(line)
 
                     # Get message analytics
                     self.get_message_analytics(data)
@@ -112,7 +121,6 @@ class Discord:
                             self.browsers[data['browser']] += 1
                         else:
                             self.browsers[data['browser']] = 1
-
 
     def get_message_analytics(self, data):
         if "event_type" in data.keys():
@@ -155,9 +163,6 @@ class Discord:
                                         if recipiant == relation['id']:
                                             if recipiant in self.message_analytics['friends'].keys():
                                                 self.message_analytics['friends'][recipiant]['messages'] += 1
-                                            else:
-                                                self.message_analytics['friends'][recipiant] = {
-                                                    'name': relation['user']['username'], 'messages': 1, 'avatar': relation['user']['avatar']}
                             return
 
                         # If server
@@ -183,7 +188,6 @@ class Discord:
 
                 except:
                     return
-
 
     def sort_data(self):
         # Each dict has a key which is id then a sub dict with messages inside, sort the dict by the messages key so most messages is 0, return as a list/array
@@ -226,14 +230,22 @@ class Discord:
 
         self.activity_analytics['hourly'] = sorted_hours
 
-
     def get_data(self):
         start_time = time.time()
         self.get_user()
-        self.get_servers()
-        self.get_analytics()
+        print(f"Time to get user: {time.time() - start_time} seconds")
 
+        func_time = time.time()
+        self.get_servers()
+        print(f"Time to get servers: {time.time() - func_time} seconds")
+
+        func_time = time.time()
+        self.get_analytics()
+        print(f"Time to get analytics: {time.time() - func_time} seconds")
+
+        func_time = time.time()
         self.sort_data()
+        print(f"Time to sort users: {time.time() - func_time} seconds")
 
         # Delete folder
         rmtree(f'{os.getcwd()}/temp/{self.folder}')

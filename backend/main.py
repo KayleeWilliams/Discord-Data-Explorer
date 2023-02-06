@@ -21,12 +21,14 @@ class Discord:
             "friends": {},
             "servers": {},
             "groups": {},
-            "messages_to_friends": 0,
-            "messages_to_nonfriends": 0,
+            "messages_to": {
+                "Friends": 0,
+                "Nonfriends": 0,
+            },
             "everyone_mentions": 0,
             "total_words": 0,
             "total_length": 0,
-            "total_messages": 0
+            "total_messages": 0,
         }
         self.activity_analytics = {
             "hourly": {},
@@ -130,9 +132,8 @@ class Discord:
                 # Get additonal message analytics
                 # Get @everyones
                 if "mention_everyone" in data.keys():
-                    if data['mention_everyone'] in self.message_analytics:
-                        if data['mention_everyone']:
-                            self.message_analytics["everyone_mentions"] += 1
+                    if data["mention_everyone"] == True:
+                        self.message_analytics["everyone_mentions"] += 1
 
                 # Get total length of messages, and total words sent
                 if "length" in data.keys():
@@ -152,9 +153,9 @@ class Discord:
                         if data['channel_type'] == "1":
                             # Get messages sent to friends & non friends
                             if data['is_friend']:
-                                self.message_analytics["messages_to_friends"] += 1
+                                self.message_analytics["messages_to"]["Friends"] += 1
                             else:
-                                self.message_analytics["messages_to_nonfriends"] += 1
+                                self.message_analytics["messages_to"]["Nonfriends"] += 1
 
                             # Get the total messages sent to each friend
                             for recipiant in channel_data['recipients']:

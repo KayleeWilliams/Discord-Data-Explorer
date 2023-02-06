@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full bg-secondary py-2 pl-4 drop-shadow-lg rounded-xl flex justify-center">
+  <div class="w-full bg-secondary py-4 pl-2 drop-shadow-lg rounded-xl flex justify-center">
     <div class="w-11/12 text-start grid grid-cols-2 grid-rows-auto gap-2">
       <div class="flex flex-row gap-4 items-center"> 
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M14 19h4V5h-4M6 19h4V5H6v14Z"/></svg>
@@ -13,17 +13,17 @@
 
       <div class="flex flex-row gap-4 items-center"> 
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.536 5.536 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13v-1.75M0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20H0m24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9V20Z"/></svg>
-        <p>  <span class="font-bold"> {{ data["guild_joined"] }} </span> Guilds joined </p>
+        <p>  <span class="font-bold"> {{ data["guild_joined"] }} </span> Servers joined </p>
       </div>
 
       <div class="flex flex-row gap-4 items-center"> 
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8"  viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5l-1.5 1.5l-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16A6.5 6.5 0 0 1 3 9.5A6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14S14 12 14 9.5S12 5 9.5 5Z"/></svg>
-        <p>  <span class="font-bold"> {{ data["guild_viewed"] }} </span> Guilds viewed </p>
+        <p>  <span class="font-bold"> {{ data["guild_viewed"] }} </span> Servers viewed </p>
       </div>
 
       <div class="flex flex-row gap-4 items-center"> 
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M13.34 8.17c-.93 0-1.69-.77-1.69-1.7a1.69 1.69 0 0 1 1.69-1.69c.94 0 1.7.76 1.7 1.69c0 .93-.76 1.7-1.7 1.7M10.3 19.93l-5.93-1.18l.34-1.7l4.15.85l1.35-6.86l-1.52.6v2.86H7v-3.96l4.4-1.87l.67-.08c.6 0 1.1.34 1.43.85l.86 1.35c.68 1.21 2.03 2.03 3.64 2.03v1.68c-1.86 0-3.56-.83-4.66-2.1l-.5 2.54l1.77 1.69V23h-1.69v-5.1l-1.78-1.69l-.84 3.72M21 23h-2V3H6v13.11l-2-.42V1h17v22M6 23H4v-3.22l2 .42V23Z"/></svg>
-        <p>  <span class="font-bold"> {{ data["leave_guild"] }} </span> Guilds left </p>
+        <p>  <span class="font-bold"> {{ data["leave_guild"] }} </span> Servers left </p>
       </div>
 
       <div class="flex flex-row gap-4 items-center"> 
@@ -83,12 +83,12 @@
 
       <div class="flex flex-row gap-4 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6 6h4v-4h-4v4zm3-20c-2.76 0-5 2.24-5 5s2.24 5 5 5s5-2.24 5-5s-2.24-5-5-5zm.5 8h-1V7h1v1zm0-2h-1V2h1v4zM16 14h4v-2.07c-.33.05-.66.07-1 .07c-1.07 0-2.09-.24-3-.68V14zM10 4v4h2.68c-.44-.91-.68-1.93-.68-3c0-.34.02-.67.07-1H10z"/></svg>
-        <p> <span class="font-bold"> {{ data["guild_outage_viewed"] }} </span> Guild outages experienced </p>
+        <p> <span class="font-bold"> {{ data["guild_outage_viewed"] }} </span> Server outages experienced </p>
       </div>
 
       <div class="flex flex-row gap-4 items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15c0 2.6-1.2 4.9-3.1 6.3l-.5-.5l-2.1-2.1l1.4-1.4l1.2 1.2c.5-.7.9-1.6 1-2.5H14v-2h1.9c-.2-.9-.5-1.7-1-2.5l-1.2 1.2l-1.4-1.4l1.2-1.2c-.7-.5-1.6-.9-2.5-1V11H9V9.1c-.9.2-1.7.5-2.5 1l3 3c.2 0 .3-.1.5-.1a2 2 0 1 1 0 4c-1.11 0-2-.89-2-2c0-.2 0-.3.1-.5l-3-3c-.5.7-.9 1.6-1 2.5H6v2H4.1c.2.9.5 1.7 1 2.5l1.2-1.2l1.4 1.4l-2.6 2.6C3.2 19.9 2 17.6 2 15c0-4.42 3.58-8 8-8s8 3.58 8 8m5-10c0-1.66-1.34-3-3-3s-3 1.34-3 3c0 1.3.84 2.4 2 2.82V11h2V7.82C22.16 7.4 23 6.3 23 5m-3 1c-.55 0-1-.45-1-1s.45-1 1-1s1 .45 1 1s-.45 1-1 1Z"/></svg>
-        <p> Hit the guild limit <span class="font-bold"> {{ data["guild_limit_reached"] }} </span> times </p>
+        <p> Hit the server limit <span class="font-bold"> {{ data["guild_limit_reached"] }} </span> times </p>
       </div>
 
       <div class="flex flex-row gap-4 items-center">

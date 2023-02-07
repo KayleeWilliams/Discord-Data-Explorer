@@ -1,17 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./components/**/*.{html,js,vue}",
-    "./app.vue",
-  ],
+  content: ["./components/**/*.{html,js,vue}", "./app.vue"],
   theme: {
     extend: {
       colors: {
-        background: '#382D43',
-        primary: '#E3C7E7',
-        secondary: '#CC9EFA',
+        background: "#131517",
+        primary: "#EBEBF7",
+        secondary: "#1E1F24",
+        accent: "#4465F1",
       },
     },
   },
   plugins: [],
-}
+};

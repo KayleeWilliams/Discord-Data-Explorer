@@ -2,12 +2,12 @@
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg">
       <div class="flex flex-row justify-between items-center">
         <div class="w-10 h-10"/>
-        <h3 class="text-background text-center font-bold mb-2"> Top Messages </h3>
+        <h3 class="text-center font-bold mb-2"> Top Messages </h3>
         <button
           type="button"
-          class="relative inline-flex items-center px-2 py-2 bg-background focus:z-10 active:bg-gray-100 transition ease-in-out duration-150 rounded-full float-right"
+          class="group relative inline-flex items-center px-2 py-2 bg-background focus:z-10 active:bg-accent hover:bg-accent transition ease-in-out duration-300 rounded-full float-right"
           @click="$emit('messageToggle')">
-          <svg class="text-secondary w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4v11H4zm12 4h4v7h-4zm-6-9h4v16h-4z"></path></svg>  
+          <svg class="text-accent group-active:text-background group-hover:text-background w-6 h-6" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h4v11H4zm12 4h4v7h-4zm-6-9h4v16h-4z"></path></svg>  
         </button>
       </div>
       <Bar :data="chartData" :options="options" class="w-full"/>
@@ -39,15 +39,17 @@ export default {
                    ...this.data.servers.slice(0, 5).map((server) => server[1]['messages']),
                    ...this.data.groups.slice(0, 5).map((group) => group[1]['messages'])],
             backgroundColor: [
-            ...Array(5).fill('rgba(181, 15, 4, 0.2)'),
-            ...Array(5).fill('rgba(8, 6, 145, 0.2)'),
-            ...Array(5).fill('rgba(35, 145, 46, 0.2)'),
+            ...Array(5).fill('#4465F1'),
+            ...Array(5).fill('#FF5B9F'),
+            ...Array(5).fill('#FFC458'),
             ],
-            borderColor: [
-            ...Array(5).fill('rgba(181, 15, 4, 1)'),
-            ...Array(5).fill('rgba(8, 6, 145, 1)'),
-            ...Array(5).fill('rgba(35, 145, 46, 1)'),
-            ],
+
+            borderRadius: 8,
+            // borderColor: [
+            // ...Array(5).fill('rgba(181, 15, 4, 1)'),
+            // ...Array(5).fill('rgba(8, 6, 145, 1)'),
+            // ...Array(5).fill('rgba(35, 145, 46, 1)'),
+            // ],
             borderWidth: 1,
           },
         ],
@@ -63,9 +65,9 @@ export default {
         scales: {
           x: { 
             beginAtZero: true,
-            ticks: { color: '#382D43' }
+            ticks: { color: '#EBEBF7' }
           },
-          y: { ticks: { color: '#382D43' } },
+          y: { ticks: { color: '#EBEBF7' } },
         },
         animation: {
           onComplete: () => {

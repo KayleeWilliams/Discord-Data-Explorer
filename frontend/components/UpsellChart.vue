@@ -28,13 +28,7 @@ export default {
             label: 'Messages',
             data: [this.data.premium_guild_upsell_viewed,this.data.premium_gift_upsell_viewed, this.data.premium_marketing_page_viewed],
             backgroundColor: ["#FF8B70", "#FFC458", "#F9F871"],
-
             borderRadius: 8,
-            // borderColor: [
-            // ...Array(5).fill('rgba(181, 15, 4, 1)'),
-            // ...Array(5).fill('rgba(8, 6, 145, 1)'),
-            // ...Array(5).fill('rgba(35, 145, 46, 1)'),
-            // ],
             borderWidth: 1,
           },
         ],

@@ -30,4 +30,5 @@ def after_request(response):
 
 if __name__ == '__main__':
    pathlib.Path(os.getcwd() + '/temp/').mkdir(parents=True, exist_ok=True)
-   app.run(host='192.168.1.229', port=3001, debug=True)
+   app.run(host='0.0.0.0', port=3001, debug=True)
+   # Run app on http://192.168.1.229:3001

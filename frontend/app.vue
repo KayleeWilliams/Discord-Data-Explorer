@@ -8,12 +8,20 @@
     </Head>
 
     <div v-if="hasUploaded">
-      <result-section :data="data" />
+      <ResultsView :data="data" />
     </div>
 
     <div v-else>
-      <upload-section @uploadSuccess="fileUploaded"/>
+      <UploadView @uploadSuccess="fileUploaded"/>
     </div>
+
+    <footer class="my-4">
+      <p class="text-center text-gray-500 text-xs">
+        Created by Kaylee Williams, Available on 
+        <a class="underline underline-offset-2 hover:text-[#4465F1] transition duration-300 ease-in-out" href="https://github.com/KayleeWilliams/Discord-Data-Explorer" target="_blank">
+          Github</a>.
+      </p>
+    </footer>
   </div>
 </template>
 

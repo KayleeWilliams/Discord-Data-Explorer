@@ -10,7 +10,7 @@
             </label>
 
             <button v-on:click="submitFile"
-                    class="flex flex-row text-background bg-secondary hover:opacity-90 select-none text-lg px-6 py-4 rounded-r-lg drop-shadow-lg transition ease-in-out delay-150 duration-150 hover:-translate-y-1 hover:scale-105"> 
+                    class="flex flex-row text-primary bg-[#4465F1] font-bold hover:opacity-90 select-none text-lg px-6 py-4 rounded-r-lg drop-shadow-lg transition ease-in-out delay-150 duration-150 hover:-translate-y-1 hover:scale-105"> 
                     <div v-show="isLoading == true" class="mr-2 rounded-full border-white border-t-black/0 w-6 h-6 border-4 border-solid animate-spin" />
                     Submit
                 </button>
@@ -33,7 +33,8 @@
         let formData = new FormData();
         formData.append('file', file);
 
-        let res = await fetch( 'http://192.168.1.229:3001/uploader', {
+
+        let res = await fetch( 'http://127.0.0.1:3001/uploader', {
             method: 'POST',
             body: formData
             });

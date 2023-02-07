@@ -1,6 +1,6 @@
 <template>
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg h-fit flex flex-col">
-      <h3 class="text-background font-bold mb-2"> {{ title }} </h3>
+      <h3 class="font-bold mb-2"> {{ title }} </h3>
       <Doughnut :data="chartData" :options="options" class="h-full self-center"/>
     </div>
 </template>
@@ -26,14 +26,24 @@ export default {
         labels: Object.keys(this.data),
         datasets: [
           {
-            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16', '#F7B733','#F5A623', '#F39C12', '#F28C10', '#F27F1D', '#F26C1D', '#F25A1D', '#F24D1D', '#F23C1D', '#F22C1D', '#F21D1D'],
-            data: Object.values(this.data)
+            backgroundColor: ['#4465F1', '#D953D2', '#FF5B9F', '#FF8B70', '#FFC458','#F9F871'],
+            data: Object.values(this.data),
+            borderWidth: 0
           }
         ],
       },
       options: {
         responsive: true,
         maintainAspectRatio: true,
+        plugins: {
+          legend: {
+            padding: 1,
+            labels: {
+              color: 'white',
+              boxWidth: 4,
+            }
+          }
+        },
         animation: {
           onComplete: () => {
             delayed = true;

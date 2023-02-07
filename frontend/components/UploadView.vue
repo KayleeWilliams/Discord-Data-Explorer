@@ -1,20 +1,23 @@
 <template>
-    <div class="bg-background text-primary flex flex-col text-center justify-center content-center gap-8 h-screen w-full">
+    <div class="bg-background text-primary flex flex-col text-center justify-center content-center items-center gap-8 w-full h-full">
         <p class="text-2xl sm:text-4xl lg:text-6xl font-bold drop-shadow-lg"> Discord Data Package Explorer </p>
         <p class="text-lg sm:text-2xl lg:text-3xl font-normal drop-shadow-lg"> Upload your data package to get started. </p>
 
-        <div class="flex flex-row justify-center content-center drop-shadow-lg mt-4">
-            <input type="file" accept=".zip" id="files" @change="handleFile($event)" hidden />
-            <label for="files"
-                class="bg-primary text-background hover:opacity-90 select-none text-lg px-6 py-4 rounded-l-lg drop-shadow-lg transition ease-in-out delay-150 duration-150 hover:-translate-y-1 hover:scale-105"> Select File
-            </label>
+        <div class="bg-gradient-to-br from-accent via-[#D953D2] to-[#FF5B9F] p-1 rounded-lg"> 
+            <div class="flex flex-row bg-secondary text-primary w-full h-full select-none items-center text-lg gap-2 rounded-lg">
+                <input type="file" accept=".zip" id="files" @change="handleFile($event)" hidden />
+                <label for="files"
+                    class="px-4 py-4 font-medium tracking-wide hover:text-accent rounded-lg"> Select File
+                </label>
 
-            <button v-on:click="submitFile"
-                    class="flex flex-row text-primary bg-[#4465F1] font-bold hover:opacity-90 select-none text-lg px-6 py-4 rounded-r-lg drop-shadow-lg transition ease-in-out delay-150 duration-150 hover:-translate-y-1 hover:scale-105"> 
-                    <div v-show="isLoading == true" class="mr-2 rounded-full border-white border-t-black/0 w-6 h-6 border-4 border-solid animate-spin" />
-                    Submit
+                <button v-on:click="submitFile"
+                    class="flex flex-row bg-accent hover:bg-primary rounded-full items-center justify-center p-2 mr-4 group transistion ease-in-out duration-150 delay-75"> 
+                    <svg v-show="isLoading == false" class="w-6 h-6 text-primary group-hover:text-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16h6v-6h4l-7-7l-7 7h4zm-4 2h14v2H5z"/></svg>
+                    <div v-show="isLoading == true" class="rounded-full border-primary group-hover:border-accent border-t-black/0 w-6 h-6 border-4 border-solid animate-spin" />
                 </button>
+            </div>
         </div>
+
     </div>
 </template>
 

@@ -1,11 +1,13 @@
 <template>
-  <div class="">
+  <div class="flex flex-col items-center justify-between content-center h-screen">
 
     <!-- Meta Tags -->
     <Head>
       <Title>Discord Data Explorer</Title>
       <Meta name="viewport" content="width=device-width initial-scale=1.0"/> 
     </Head>
+
+    <div />
 
     <div v-if="hasUploaded">
       <ResultsView :data="data" />
@@ -15,7 +17,7 @@
       <UploadView @uploadSuccess="fileUploaded"/>
     </div>
 
-    <footer class="my-4">
+    <footer class="py-4">
       <p class="text-center text-gray-500 text-xs">
         Created by Kaylee Williams, Available on 
         <a class="underline underline-offset-2 hover:text-[#4465F1] transition duration-300 ease-in-out" href="https://github.com/KayleeWilliams/Discord-Data-Explorer" target="_blank">

@@ -25,6 +25,11 @@ class Discord:
                 "Friends": 0,
                 "Nonfriends": 0,
             },
+            "total_messages_by": {
+                "DM": 0,
+                "Server": 0,
+                "Group": 0,
+            },
             "everyone_mentions": 0,
             "total_words": 0,
             "total_length": 0,
@@ -149,8 +154,10 @@ class Discord:
                     with open(f'temp/{self.folder}/package/messages/c{data["channel"]}/channel.json') as f:
                         channel_data = json.load(f)
 
-                        # If friend DM
+                        # If DM
                         if data['channel_type'] == "1":
+                            self.message_analytics["total_messages_by"]["DM"] += 1
+
                             # Get messages sent to friends & non friends
                             if data['is_friend']:
                                 self.message_analytics["messages_to"]["Friends"] += 1
@@ -171,10 +178,12 @@ class Discord:
                             if channel_data['guild']['id'] in self.message_analytics['servers'].keys():
                                 self.message_analytics['servers'][channel_data['guild']
                                                                   ['id']]['messages'] += 1
+                                self.message_analytics["total_messages_by"]["Server"] += 1
                             return
 
                         # If group
                         elif data['channel_type'] == "3":
+                            self.message_analytics["total_messages_by"]["Group"] += 1
                             if channel_data['id'] in self.message_analytics['groups'].keys():
                                 self.message_analytics['groups'][channel_data['id']
                                                                  ]['messages'] += 1

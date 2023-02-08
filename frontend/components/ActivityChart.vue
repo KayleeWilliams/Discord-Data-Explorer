@@ -1,10 +1,10 @@
 <template>
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg">
-    <p class="font-bold"> Activity </p>
+    <p class="font-bold"> Average Activity </p>
     <div class="flex flex-row gap-2 font-medium justify-center">
-      <button @click="updateData('Hourly')">Hourly</button>
-      <button @click="updateData('Weekly')">Weekday</button>
-      <!-- <button @click="updateData('perYear')">Per Year</button> -->
+      <button class="hover:text-accent transition ease-in-out duration-300" @click="updateData('Hourly')">Hour</button>
+      <button class="hover:text-accent transition ease-in-out duration-300" @click="updateData('Weekly')">Week</button>
+      <button class="hover:text-accent transition ease-in-out duration-300" @click="updateData('Monthly')">Month</button>
     </div>
     <Line ref="line" :data="data" :options="options" class="w-full"/>
   </div>
@@ -17,6 +17,25 @@
   ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, LineElement, PointElement, Filler)
   let delayed = false; 
 
+  const monthly = (activity) => {
+    return {
+      labels: activity.monthly.map((item) => item[0]),
+      datasets: [
+        {
+          label: 'Activity',
+          data: activity.monthly.map((item) => item[1]),
+
+          // Data styling
+          borderColor: 'rgba(255, 196, 88, 1)',
+          backgroundColor: 'rgba(255, 196, 88, 0.6)',
+          pointStyle: false,
+          tension: 0.5,
+          fill: 'start',
+          radius: 6,
+        }
+      ]
+    }
+  }
 
   const weekly = (activity) => {
     return {
@@ -113,9 +132,9 @@
           case 'Hourly':
             this.data = hourly(this.activity)
             break
-          // case 'Data Three':
-          //   this.data = dataThree
-          //   break
+          case 'Monthly':
+            this.data = monthly(this.activity)
+            break
         }
       }
     }

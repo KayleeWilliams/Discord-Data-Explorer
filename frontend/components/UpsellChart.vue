@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       chartData: {
-        labels: ["Boosts", "Gifts", "Nitro"],
+        labels: ["Server", "Gifts", "Nitro"],
         datasets: [
           {
             label: 'Messages',

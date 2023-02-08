@@ -37,7 +37,8 @@ class Discord:
         }
         self.activity_analytics = {
             "hourly": {},
-            "weekly": {}
+            "weekly": {},
+            "monthly": {},
         }
 
     # Extract the Zip file
@@ -102,14 +103,19 @@ class Discord:
                             self.activity_analytics['hourly'][hour] = 1
 
                         # Daily activity
-                        date = datetime.datetime.strptime(
-                            data['_hour_utc'], "%Y-%m-%dT%H:%M:%S")
+                        date = datetime.datetime.strptime(data['_hour_utc'], "%Y-%m-%dT%H:%M:%S")
                         weekday = date.strftime("%A")
-
                         if weekday in self.activity_analytics['weekly']:
                             self.activity_analytics['weekly'][weekday] += 1
                         else:
                             self.activity_analytics['weekly'][weekday] = 1
+
+                        # Monthly activity
+                        month = date.strftime("%B")
+                        if month in self.activity_analytics['monthly']:
+                            self.activity_analytics['monthly'][month] += 1
+                        else:
+                            self.activity_analytics['monthly'][month] = 1
 
                     # Get the predicted age
                     if "predicted_age" in data.keys():
@@ -219,6 +225,18 @@ class Discord:
             else:
                 sorted_weekdays.append((day, 0))
         self.activity_analytics['weekly'] = sorted_weekdays
+
+        # Sort the months
+        sorted_months = []
+        months_order = ["January", "February", "March", "April", "May", "June", "July", "August", "September",
+                        "October", "November", "December"]
+        for month in months_order:
+            if month in self.activity_analytics['monthly']:
+                sorted_months.append(
+                    (month, self.activity_analytics['monthly'][month]))
+            else:
+                sorted_months.append((month, 0))
+        self.activity_analytics['monthly'] = sorted_months
 
         # Sort the hours
         sorted_hours = []

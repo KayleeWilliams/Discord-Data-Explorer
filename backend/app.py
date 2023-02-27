@@ -20,7 +20,11 @@ def upload_file():
       f = request.files['file']
       filename = secure_filename(f.filename)
       f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-      return jsonify(main(filename))
+      # Return results or error
+      try: 
+         return jsonify(main(filename))
+      except Exception as e:
+         return jsonify({'error': str(e)}), 400
 
 
 def after_request(response):
@@ -30,5 +34,5 @@ def after_request(response):
 
 if __name__ == '__main__':
    pathlib.Path(os.getcwd() + '/temp/').mkdir(parents=True, exist_ok=True)
-   app.run(host='0.0.0.0', port=3001, debug=True)
+   app.run(host='0.0.0.0', port=3003, debug=True)
    # Run app on http://192.168.1.229:3001

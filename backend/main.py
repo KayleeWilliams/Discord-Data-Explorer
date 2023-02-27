@@ -55,6 +55,17 @@ class Discord:
 
         # Delete the Zip file
         os.remove(f'{os.getcwd()}/temp/{filename}')
+
+        # CHeck if there files/dirs exist in the extracted folder if not error which one is missing
+        if not os.path.exists(f'temp/{self.folder}/package/account/user.json'):
+            raise Exception("account/user.json not found")
+        if not os.path.exists(f'temp/{self.folder}/package/activity/analytics/'):
+           raise Exception("activity/analytics folder not found")
+        if not os.path.exists(f'temp/{self.folder}/package/servers/index.json'):
+            raise Exception("servers/index.json not found")
+        if not os.path.exists(f'temp/{self.folder}/package/messages/'):
+            raise Exception("messages folder not found")
+        
         print(f"Time to extract data: {time.time() - start_time} seconds")
 
     # Get User ID

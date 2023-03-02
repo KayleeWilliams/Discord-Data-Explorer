@@ -50,8 +50,13 @@ class Discord:
 
         with ZipFile(self.filepath, 'r') as zf:
             for file in zf.namelist():
-                if file.startswith('package/account/user.json') or file.startswith('package/activity/analytics/') or file.startswith('package/servers/index.json') or file.startswith('package/messages/'):
-                    zf.extract(file, f'temp/{self.folder}')
+                # If the OS is windows
+                if os.name == 'nt':
+                    if file.startswith('account/user.json') or file.startswith('activity/analytics/') or file.startswith('servers/index.json') or file.startswith('messages/'):
+                        zf.extract(file, f'temp/{self.folder}/package')
+                else:
+                    if file.startswith('package/account/user.json') or file.startswith('package/activity/analytics/') or file.startswith('package/servers/index.json') or file.startswith('package/messages/'):
+                        zf.extract(file, f'temp/{self.folder}')
 
         # Delete the Zip file
         os.remove(f'{os.getcwd()}/temp/{filename}')
@@ -71,7 +76,7 @@ class Discord:
     # Get User ID
 
     def get_user(self):
-        with open(f'temp/{self.folder}/package/account/user.json') as user:
+        with open(f'temp/{self.folder}/package/account/user.json', encoding="utf8") as user:
             data = json.load(user)
             self.user_id = data['id']
             self.relationships = data['relationships']
@@ -97,7 +102,7 @@ class Discord:
     def get_analytics(self):
         # Open all the files
         for file in glob(f'temp/{self.folder}/package/activity/analytics/*.json', recursive=True):
-            with open(file) as f:
+            with open(file, encoding="utf8") as f:
                 for line in f:
                     data = ujson.loads(line)
 
@@ -168,7 +173,7 @@ class Discord:
 
                 # Get the total messages friends, servers & groups sent
                 try:
-                    with open(f'temp/{self.folder}/package/messages/c{data["channel"]}/channel.json') as f:
+                    with open(f'temp/{self.folder}/package/messages/c{data["channel"]}/channel.json', encoding="utf8") as f:
                         channel_data = json.load(f)
 
                         # If DM

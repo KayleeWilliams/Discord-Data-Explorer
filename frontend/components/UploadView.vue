@@ -15,7 +15,7 @@
                 </label>
 
                 <button v-on:click="submitFile"
-                    class="flex flex-row bg-accent hover:bg-primary rounded-full items-center justify-center p-2 mr-4 group transistion ease-in-out duration-150 delay-75"> 
+                    class="flex flex-row bg-accent hover:bg-primary rounded-full items-center justify-center p-2 mr-4 group transition ease-in-out duration-150 delay-75"> 
                     <svg v-show="isLoading == false" class="w-6 h-6 text-primary group-hover:text-accent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M9 16h6v-6h4l-7-7l-7 7h4zm-4 2h14v2H5z"/></svg>
                     <div v-show="isLoading == true" class="rounded-full border-primary group-hover:border-accent group-hover:border-t-black/0 group-hover:animate-spin border-t-black/0 w-6 h-6 border-4 border-solid animate-spin" />
                 </button>
@@ -49,7 +49,7 @@
             return;
         }
         // If the file is not a zip, display message & return
-        else if (file.type != 'application/zip') {
+        else if (file.type != 'application/zip' && file.type != 'application/x-zip-compressed') {
             errorMessage.value = 'Please select a zip file';
             return;
         }
@@ -81,7 +81,7 @@
 
             else {
                 isLoading.value = false;
-                errorMessage.value = 'An unkown error occurred while uploading the file';
+                errorMessage.value = 'An unknown error occurred while uploading the file';
             }
         }
     }

@@ -15,6 +15,9 @@ COPY . .
 # Expose port 5000
 EXPOSE 3003
 
+
+ENV PYTHONUNBUFFERED=1
+
 # Start 
-CMD ["python", "app.py"]
+CMD ["python", "-u", "app.py"]
 

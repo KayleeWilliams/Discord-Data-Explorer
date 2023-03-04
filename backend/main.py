@@ -8,7 +8,6 @@ import json
 import datetime
 import ujson
 
-
 class Discord:
     # Set default values for the data.
     def __init__(self):
@@ -43,24 +42,26 @@ class Discord:
 
     # Extract the Zip file
 
+
     def extract_data(self, filename):
         start_time = time.time()
         self.filepath = f'{os.getcwd()}/temp/{filename}'
         self.folder = f'{randint(0, 1000)}'
 
+        # Make the temp folder
+        os.mkdir(f'{os.getcwd()}/temp/{self.folder}')
+
         with ZipFile(self.filepath, 'r') as zf:
             for file in zf.namelist():
-                # If the OS is windows
-                if os.name == 'nt':
-                    if file.startswith('account/user.json') or file.startswith('activity/analytics/') or file.startswith('servers/index.json') or file.startswith('messages/'):
-                        zf.extract(file, f'temp/{self.folder}/package')
-                else:
-                    if file.startswith('package/account/user.json') or file.startswith('package/activity/analytics/') or file.startswith('package/servers/index.json') or file.startswith('package/messages/'):
+                # Extract the files needed regardless how the OS extracts files
+                if file.startswith('account/user.json') or file.startswith('activity/analytics/') or file.startswith('servers/index.json') or file.startswith('messages/'):
+                    zf.extract(file, f'temp/{self.folder}/package')
+                elif file.startswith('package/account/user.json') or file.startswith('package/activity/analytics/') or file.startswith('package/servers/index.json') or file.startswith('package/messages/'):
                         zf.extract(file, f'temp/{self.folder}')
 
         # Delete the Zip file
         os.remove(f'{os.getcwd()}/temp/{filename}')
-
+    
         # CHeck if there files/dirs exist in the extracted folder if not error which one is missing
         if not os.path.exists(f'temp/{self.folder}/package/account/user.json'):
             raise Exception("account/user.json not found")

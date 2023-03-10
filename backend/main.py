@@ -6,7 +6,7 @@ import time
 import os
 import json
 import datetime
-import ujson
+import orjson 
 
 class Discord:
     # Set default values for the data.
@@ -103,9 +103,10 @@ class Discord:
     def get_analytics(self):
         # Open all the files
         for file in glob(f'temp/{self.folder}/package/activity/analytics/*.json', recursive=True):
-            with open(file, encoding="utf8") as f:
+            with open(file, 'rb') as f:
                 for line in f:
-                    data = ujson.loads(line)
+                    # data = ujson.loads(line)
+                    data = orjson.loads(line)
 
                     # Get message analytics
                     self.get_message_analytics(data)

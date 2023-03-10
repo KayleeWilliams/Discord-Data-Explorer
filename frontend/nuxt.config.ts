@@ -1,19 +1,5 @@
-import { defineNuxtConfig } from 'nuxt'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  build: {
-    transpile: ['chart.js'],
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
-  css: [
-    "~/assets/css/tailwind.css"
-  ],
+  modules: ['@nuxtjs/tailwindcss'],
+  transpile: ['chart.js']
 })

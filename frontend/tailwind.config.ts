@@ -1,6 +1,6 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./components/**/*.{html,js,vue}", "./app.vue"],
+import type { Config } from 'tailwindcss'
+
+export default <Partial<Config>>{
   theme: {
     extend: {
       colors: {
@@ -10,6 +10,5 @@ module.exports = {
         accent: "#4465F1",
       },
     },
-  },
-  plugins: [],
-};
+  }
+}

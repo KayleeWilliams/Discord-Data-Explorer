@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <h1 class="text-primary text-3xl font-black text-center mt-8 tracking-wide"> Your Discord Data </h1>
-    <div class="text-primary bg-background text-center grid grid-cols-5 auto-rows-max gap-4 w-screen mb-8 ">
+  <div class="bg-background pb-8">
+    <div class="text-primary text-center grid grid-cols-5 auto-rows-max gap-4 w-screen mt-8">
+        <h1 class="text-primary text-3xl font-black text-center tracking-wide col-span-full row-start-1"> Your Discord Data </h1>
+        <Exports class="col-start-4 row-start-1" />
+
         <BarChart class="col-start-2 row-start-3 col-span-3" :data="data.message_analytics" v-if="showMessageChart" @messageToggle="messageToggle" />
         <DoughnutChart class="col-start-2 row-start-4 col-span-2 h-full" :data="data.message_analytics.total_messages_by" title="Total Messages By Channel" />
 
@@ -34,7 +36,6 @@
         </div>
         
         <!-- <p class="bg-white"> {{ data.events }}</p> -->
-
     </div>
   </div>
 </template>
@@ -63,7 +64,7 @@ export default {
   methods: {
     messageToggle() {
       this.showMessageChart = !this.showMessageChart;
-    }
+    },
   },
 }
 </script>

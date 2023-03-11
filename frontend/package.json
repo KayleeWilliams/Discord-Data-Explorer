@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.4.1",
     "chart.js": "^4.2.1",
+    "html2canvas": "^1.4.1",
     "vue-chartjs": "^5.2.0"
   }
 }

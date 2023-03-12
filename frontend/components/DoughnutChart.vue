@@ -1,7 +1,7 @@
 <template>
     <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg h-fit flex flex-col">
       <h3 class="font-bold mb-2"> {{ title }} </h3>
-      <Doughnut :data="chartData" :options="options" class="h-full self-center"/>
+      <Doughnut :data="chartData" :options="options" class="h-full self-center place-content-center	"/>
     </div>
 </template>
 

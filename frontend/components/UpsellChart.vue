@@ -1,7 +1,7 @@
 <template>
-    <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg ">
+    <div class="w-full bg-secondary p-4 rounded-xl drop-shadow-lg">
       <h3 class="text-center font-bold mb-2"> Upsells Viewed </h3>
-      <Bar :data="chartData" :options="options" class="w-full"/>
+      <Bar :data="chartData" :options="options" class="h-full"/>
     </div>
 </template>
 

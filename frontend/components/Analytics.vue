@@ -1,6 +1,6 @@
 <template>
   <div class="w-full bg-secondary py-4 pl-2 drop-shadow-lg rounded-xl flex justify-center">
-    <div class="w-11/12 text-start grid grid-cols-2 grid-rows-auto gap-2">
+    <div class="w-11/12 text-start grid grid-cols-1 lg:grid-cols-2 grid-rows-auto gap-2">
       <div class="flex flex-row gap-4 items-center"> 
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 24 24"><path fill="currentColor" d="M14 19h4V5h-4M6 19h4V5H6v14Z"/></svg>
         <p class="text-primary"> Discord paused Spotify <span class="font-bold text-accent"> {{ data["spotify_auto_paused"] }} </span> times </p>

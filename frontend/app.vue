@@ -33,7 +33,6 @@
 
   function fileUploaded(res) {
     data.value = res;
-    console.log(res);
     hasUploaded.value = true;
   }
 </script>

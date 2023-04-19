@@ -22,6 +22,13 @@
             </div>
         </div>
 
+        <div class="flex flex-col gap-2">
+            <button v-on:click="demo" class="font-medium tracking-wide text-primary hover:text-accent transition ease-in-out duration-150 delay-75">
+                <p> Try a Demo </p>
+            </button>
+            <div class="bg-gradient-to-r from-accent via-[#D953D2] to-[#FF5B9F] pb-1 w-full rounded-lg" />
+        </div>
+
         <!-- Error notifications -->
         <div v-show="errorMessage.length != 0" class="bg-[#FF5B9F] p-1 rounded-lg">
             <div class="bg-secondary rounded-md py-3 px-6">
@@ -84,5 +91,10 @@
                 errorMessage.value = 'An unknown error occurred while uploading the file';
             }
         }
+    }
+
+    async function demo(){
+        const data = await import('~/assets/data/demo.json')
+        emit('uploadSuccess', data)
     }
 </script>

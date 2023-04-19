@@ -1,0 +1,843 @@
+{
+  "activity_analytics": {
+    "hourly": [
+      [
+        "0am",
+        82926
+      ],
+      [
+        "1am",
+        38412
+      ],
+      [
+        "2am",
+        12239
+      ],
+      [
+        "3am",
+        3951
+      ],
+      [
+        "4am",
+        3237
+      ],
+      [
+        "5am",
+        5069
+      ],
+      [
+        "6am",
+        12172
+      ],
+      [
+        "7am",
+        27351
+      ],
+      [
+        "8am",
+        48384
+      ],
+      [
+        "9am",
+        81085
+      ],
+      [
+        "10am",
+        101204
+      ],
+      [
+        "11am",
+        114328
+      ],
+      [
+        "12am",
+        118692
+      ],
+      [
+        "1pm",
+        122164
+      ],
+      [
+        "2pm",
+        131255
+      ],
+      [
+        "3pm",
+        148707
+      ],
+      [
+        "4pm",
+        159481
+      ],
+      [
+        "5pm",
+        161126
+      ],
+      [
+        "6pm",
+        162102
+      ],
+      [
+        "7pm",
+        163253
+      ],
+      [
+        "8pm",
+        164274
+      ],
+      [
+        "9pm",
+        162312
+      ],
+      [
+        "10pm",
+        147735
+      ],
+      [
+        "11pm",
+        126506
+      ]
+    ],
+    "monthly": [
+      [
+        "January",
+        203521
+      ],
+      [
+        "February",
+        159346
+      ],
+      [
+        "March",
+        223740
+      ],
+      [
+        "April",
+        189525
+      ],
+      [
+        "May",
+        192634
+      ],
+      [
+        "June",
+        224893
+      ],
+      [
+        "July",
+        182150
+      ],
+      [
+        "August",
+        181251
+      ],
+      [
+        "September",
+        190928
+      ],
+      [
+        "October",
+        193750
+      ],
+      [
+        "November",
+        168897
+      ],
+      [
+        "December",
+        187330
+      ]
+    ],
+    "weekly": [
+      [
+        "Monday",
+        330217
+      ],
+      [
+        "Tuesday",
+        340237
+      ],
+      [
+        "Wednesday",
+        316354
+      ],
+      [
+        "Thursday",
+        334809
+      ],
+      [
+        "Friday",
+        335079
+      ],
+      [
+        "Saturday",
+        323577
+      ],
+      [
+        "Sunday",
+        317692
+      ]
+    ]
+  },
+  "browsers": {
+    "Chrome": 3913,
+    "Discord Client": 1873292,
+    "Discord iOS": 385324,
+    "Safari": 347
+  },
+  "events": {
+    "accepted_instant_invite": 638,
+    "account_link_step": 3,
+    "ack_messages": 129562,
+    "active_channel_clicked": 1,
+    "active_channels_loaded": 190,
+    "activity_device_thermal_state_changed": 7,
+    "activity_internal_client_status": 1,
+    "activity_internal_launch_step_completed": 11,
+    "activity_report_problem": 1,
+    "activity_session_joined": 17,
+    "activity_session_left": 17,
+    "activity_updated": 253164,
+    "add_channel_recipient": 227,
+    "add_reaction": 1850,
+    "af_dm_visited": 2,
+    "af_exited": 1199,
+    "af_guild_visited": 1,
+    "af_loaded": 1098,
+    "af_user_popout_opened": 3,
+    "af_viewed": 1230,
+    "af_voice_channel_visited": 1,
+    "analytics_data_queried": 22,
+    "app_crashed": 8,
+    "app_directory_collection_item_clicked": 1,
+    "app_directory_page_viewed": 2,
+    "app_first_launched": 1,
+    "app_first_login": 4,
+    "app_launch_completed": 7248,
+    "app_modules_updated": 198,
+    "app_native_crash": 4910,
+    "app_notice_closed": 16,
+    "app_notice_displayed": 3197,
+    "app_notice_primary_cta_opened": 11,
+    "app_notice_viewed": 4021,
+    "app_opened": 27999,
+    "app_ui_viewed": 9113,
+    "app_ui_viewed2": 650,
+    "application_add_to_server_clicked": 10,
+    "application_closed": 5351,
+    "application_command_browser_jumped": 1,
+    "application_command_browser_opened": 1123,
+    "application_command_browser_scrolled": 1047,
+    "application_command_load_timing": 101,
+    "application_command_search_open_timing": 44,
+    "application_command_selected": 836,
+    "application_command_used": 743,
+    "application_command_validation_failed": 10,
+    "application_created": 3,
+    "application_generated_generic_event": 78,
+    "application_opened": 55,
+    "application_updated": 28,
+    "authorized_app_connected": 16084,
+    "authorized_app_removed": 1,
+    "auto_suggest_displayed": 7,
+    "automated_message_received": 1,
+    "call_report_problem": 48,
+    "captcha_served": 29,
+    "captcha_solved": 29,
+    "change_log_closed": 242,
+    "change_log_cta_clicked": 2,
+    "change_log_opened": 276,
+    "change_log_video_interacted": 4,
+    "channel_autocomplete_open": 8241,
+    "channel_autocomplete_selected": 4487,
+    "channel_deleted": 477,
+    "channel_notice_closed": 5,
+    "channel_notice_cta_clicked": 5,
+    "channel_notice_viewed": 127601,
+    "channel_opened": 142426,
+    "channel_permissions_overwrite_updated": 317,
+    "channel_permissions_page_viewed": 2,
+    "channel_updated": 565,
+    "chat_input_component_viewed": 2417,
+    "claim_account": 1,
+    "click_landing_cta": 14,
+    "client_heartbeat": 2157,
+    "close_tutorial": 8,
+    "connected_account_initiated": 11,
+    "connected_account_viewed": 1200,
+    "connection_resumed": 2659,
+    "context_menu_image_copied": 207,
+    "context_menu_image_saved": 9,
+    "context_menu_link_copied": 319,
+    "context_menu_link_opened": 14,
+    "copy_instant_invite": 353,
+    "create_channel": 267,
+    "create_emoji": 138,
+    "create_guild": 29,
+    "create_guild_viewed": 1,
+    "create_instant_invite": 576,
+    "custom_status_updated": 122,
+    "data_request_completed": 3,
+    "data_request_initiated": 4,
+    "delete_emoji": 14,
+    "delete_guild": 17,
+    "detect_platform_account": 4,
+    "dev_portal_auth_url_copied": 15,
+    "dev_portal_cta_viewed": 36,
+    "dev_portal_page_viewed": 301,
+    "dev_portal_rp_viz_used": 2,
+    "disable_totp": 2,
+    "dismissible_content_dismissed": 50,
+    "dismissible_content_rejected": 17,
+    "dismissible_content_shown": 9664,
+    "dm_empty_action": 37,
+    "dm_list_viewed": 46628,
+    "dm_profile_toggled": 2,
+    "dm_profile_viewed": 11,
+    "dm_safety": 8,
+    "dm_safety_coachmark_action": 3,
+    "download_app": 1,
+    "email_clicked": 1,
+    "email_opened": 45,
+    "email_pixel_hit": 141,
+    "email_sent": 49,
+    "emoji_upload_completed": 1,
+    "emoji_upload_started": 1,
+    "enable_notifications": 1,
+    "enable_totp": 3,
+    "experiment_dm_triggered": 11,
+    "experiment_guild_triggered": 12892,
+    "experiment_user_triggered": 31852,
+    "expression_picker_category_collapse_toggled": 8,
+    "expression_picker_category_selected": 23,
+    "expression_picker_expression_selected": 14,
+    "expression_picker_opened": 2723,
+    "expression_picker_tab_clicked": 70,
+    "expression_tooltip_viewed": 183,
+    "external_dynamic_link_received": 15,
+    "external_share_opened": 25,
+    "feed_item_interacted": 2,
+    "feed_item_seen_batch": 117,
+    "feed_loaded": 228,
+    "feed_shown": 161,
+    "file_size_limit_exceeded": 27,
+    "file_upload_alert_viewed": 2,
+    "forum_add_media_to_original_post_clicked": 2,
+    "forum_channel_create_new_post_clicked": 7,
+    "forum_channel_grid_upsell_viewed": 1,
+    "forum_channel_more_posts_loaded": 358,
+    "forum_channel_new_post_draft_created": 33,
+    "forum_channel_post_clicked": 143,
+    "forum_channel_post_created": 7,
+    "forum_channel_scrolled": 77,
+    "forum_channel_searched": 3,
+    "forum_channel_seen_batch": 321,
+    "forum_channel_tag_filter_clicked": 1,
+    "friend_add_nearby_connected": 3,
+    "friend_add_viewed": 14,
+    "friend_request_failed": 32,
+    "friends_list_viewed": 2325,
+    "game_news_changed": 3,
+    "game_news_opened": 6,
+    "gif_favorited": 235,
+    "gif_unfavorited": 21,
+    "gift_code_created": 1,
+    "gift_code_resolved": 543,
+    "gift_code_sent": 5,
+    "gl_application_uninstalled": 1,
+    "gl_patch_cancelled": 2,
+    "gl_patch_complete": 18,
+    "gl_patch_paused": 1,
+    "gl_patch_started": 20,
+    "guild_bot_added": 34,
+    "guild_channel_highlights_loaded": 4,
+    "guild_creation_intent_selected": 12,
+    "guild_directory_channel_viewed": 191,
+    "guild_discovery_exited": 24,
+    "guild_discovery_guild_join_clicked": 11,
+    "guild_discovery_guild_selected": 20,
+    "guild_discovery_viewed": 38,
+    "guild_insights_settings_cta_clicked": 1,
+    "guild_joined": 174,
+    "guild_limit_reached": 5,
+    "guild_lurk_started": 12,
+    "guild_member_updated": 382,
+    "guild_onboarding_loaded": 63,
+    "guild_outage_viewed": 13,
+    "guild_role_updated": 478,
+    "guild_scheduled_event_subscribed": 4,
+    "guild_scheduled_event_unsubscribed": 2,
+    "guild_settings_discovery_viewed": 4,
+    "guild_settings_updated": 33,
+    "guild_template_selected": 13,
+    "guild_viewed": 124597,
+    "guild_welcome_screen_option_selected": 7,
+    "hardware_detected": 53,
+    "highlights_test_loaded": 2529,
+    "home_backgrounded": 10,
+    "home_channel_opened": 74,
+    "home_events_loaded": 191,
+    "home_exited": 187,
+    "home_feedback_prompt_viewed": 6,
+    "home_first_scroll_started": 23,
+    "home_opened": 190,
+    "home_panel_viewed": 8,
+    "hook_result": 4778,
+    "hover_menu_opened": 15,
+    "hub_waitlist_submitted": 3,
+    "hypesquad_subscription_updated": 1,
+    "iar_modal_close": 7,
+    "iar_modal_open": 7,
+    "iar_navigate": 5,
+    "ignore_friend_suggestion": 89,
+    "impression_activity_shelf": 1,
+    "impression_channel_add_info": 79,
+    "impression_channel_add_members": 3,
+    "impression_channel_call_video_grid_view": 494,
+    "impression_contact_sync_start": 2,
+    "impression_guild_add_accept_invite": 1,
+    "impression_guild_add_customize": 9,
+    "impression_guild_add_intent_selection": 12,
+    "impression_guild_add_join": 7,
+    "impression_guild_add_landing": 32,
+    "impression_guild_invite": 29,
+    "impression_guild_settings_analytics": 2,
+    "impression_guild_settings_audit_log": 22,
+    "impression_guild_settings_bans": 4,
+    "impression_guild_settings_boost_status": 3,
+    "impression_guild_settings_community_overview": 3,
+    "impression_guild_settings_emoji": 45,
+    "impression_guild_settings_enable_community": 7,
+    "impression_guild_settings_integration": 23,
+    "impression_guild_settings_invites": 7,
+    "impression_guild_settings_landing": 5,
+    "impression_guild_settings_members": 26,
+    "impression_guild_settings_moderation": 25,
+    "impression_guild_settings_overview": 113,
+    "impression_guild_settings_roles": 60,
+    "impression_guild_settings_stickers": 7,
+    "impression_guild_settings_template": 8,
+    "impression_guild_settings_vanity_url": 4,
+    "impression_guild_settings_widget": 8,
+    "impression_hub_email_signup": 15,
+    "impression_hub_existing_guild_choose": 1,
+    "impression_invite_accept": 9,
+    "impression_multi_account_switch_landing": 1,
+    "impression_notification_center_landing": 12,
+    "impression_role_create_add_members": 6,
+    "impression_role_create_display": 7,
+    "impression_role_create_permissions": 6,
+    "impression_snowsgiving": 5,
+    "impression_user_settings_connections": 7,
+    "in_app_camera_used": 11,
+    "inbox_channel_collapsed": 6,
+    "instant_invite_shared": 5,
+    "integration_added": 24,
+    "integration_removed": 23,
+    "invite_app_invoked": 138,
+    "invite_opened": 1157,
+    "invite_sent": 520,
+    "invite_suggestion_opened": 315,
+    "invite_viewed": 148,
+    "invite_will_view": 7,
+    "join_call": 1479,
+    "join_experiment": 16,
+    "join_guild_viewed": 10,
+    "join_thread": 2,
+    "join_voice_channel": 9891,
+    "jump": 3588,
+    "keyboard_mode_toggled": 2919,
+    "keyboard_shortcut_used": 6884,
+    "launch_game": 102011,
+    "leave_guild": 402,
+    "leave_voice_channel": 10295,
+    "library_install_initiated": 4,
+    "library_uninstall_initiated": 2,
+    "library_viewed": 155,
+    "link_security_check_blocked": 1,
+    "local_settings_updated": 15,
+    "local_voice_settings_loaded": 5,
+    "login_attempted": 18,
+    "login_successful": 87,
+    "login_viewed": 11,
+    "main_navigation_menu": 12,
+    "mark_as_read": 247,
+    "media_device_changed": 722,
+    "media_picker_infinite_scroll_paged": 470,
+    "media_session_joined": 4552,
+    "media_viewer_download_button_tapped": 9,
+    "media_viewer_session_completed": 1,
+    "member_list_toggled": 16,
+    "member_list_viewed": 108829,
+    "message_component_used": 29,
+    "message_deleted": 1903,
+    "message_edit_up_arrow": 2164,
+    "message_edited": 8954,
+    "message_embeds_resolved": 1232,
+    "message_length_limit_reached": 27,
+    "message_popout_menu_opened_desktop": 7,
+    "message_reported": 37,
+    "message_request_action": 8,
+    "message_request_create": 13,
+    "message_requests_initialized": 10,
+    "message_requests_viewed": 5,
+    "message_sent_with_attachments": 233,
+    "mic_testing_started": 292,
+    "mic_testing_stopped": 291,
+    "mktg_application_step": 1,
+    "mktg_hypesquad_form_opened": 5,
+    "mktg_nitro_cta_clicked": 1,
+    "mktg_page_viewed": 104,
+    "modal_dismissed": 82,
+    "nav_drawer_opened": 13505,
+    "network_action_channel_create": 44,
+    "network_action_email_settings_fetch": 5,
+    "network_action_embedded_activities_fetch_shelf": 5,
+    "network_action_embedded_activities_launch": 1,
+    "network_action_guild_create": 7,
+    "network_action_hub_email_verify": 6,
+    "network_action_hub_email_verify_send": 5,
+    "network_action_hub_waitlist_signup": 3,
+    "network_action_invite_resolve": 2669,
+    "network_action_notification_center_page_fetch": 12,
+    "network_action_user_login_mfa": 4,
+    "network_action_user_logout": 1,
+    "network_action_user_register_device_token": 1147,
+    "network_action_user_settings_update": 3,
+    "network_action_user_survey_fetch": 1483,
+    "networking_peer_metrics": 15,
+    "networking_system_metrics": 17,
+    "new_member_mention_cta_clicked": 1,
+    "notification_center_create": 2,
+    "notification_clicked": 17857,
+    "notification_device_token_update": 5813,
+    "notification_permission_status": 11397,
+    "notification_rendered": 3576,
+    "notification_sent": 85,
+    "notification_sent_game_launched": 13,
+    "notification_settings_updated": 282,
+    "notification_viewed": 4194,
+    "nuf_step_complete": 2,
+    "nuo_transition": 41,
+    "oauth2_authorize_accepted": 12937,
+    "oauth2_authorize_viewed": 65,
+    "open_modal": 10784,
+    "open_popout": 41732,
+    "overlay_hook_result": 4064,
+    "overlay_hooked": 325,
+    "overlay_hooking": 335,
+    "overlay_initialized": 3892,
+    "overlay_layout_updated": 36,
+    "overlay_locked": 1924,
+    "overlay_perf_info": 6951,
+    "overlay_settings_updated": 10,
+    "overlay_toggled": 25,
+    "overlay_unlocked": 1932,
+    "payment_attempted": 20,
+    "payment_failed": 1,
+    "payment_flow_started": 88,
+    "payment_flow_step": 27,
+    "payment_source_added": 1,
+    "payment_source_removed": 1,
+    "payment_succeeded": 54,
+    "permissions_acked": 15522,
+    "permissions_requested": 24429,
+    "pin_message": 135,
+    "poggermode_settings_updated": 3,
+    "premium_entitlement_dual_read_matched": 287,
+    "premium_feature_tutorial_steps": 452,
+    "premium_feature_usage_v2": 1,
+    "premium_gift_upsell_viewed": 11,
+    "premium_guild_promotion_opened": 4,
+    "premium_guild_subscription_canceled": 4,
+    "premium_guild_subscription_created": 5,
+    "premium_guild_subscription_removed": 6,
+    "premium_guild_upsell_viewed": 3,
+    "premium_marketing_page_exited": 25,
+    "premium_marketing_page_viewed": 31,
+    "premium_marketing_surface_reached_bottom": 1,
+    "premium_page_opened": 9,
+    "premium_promotion_opened": 5,
+    "premium_purchase_started": 2,
+    "premium_upsell_viewed": 3637,
+    "privacy_control_updated": 1,
+    "promotion_viewed": 969,
+    "push_notification_queue_flushed": 204,
+    "quickswitcher_closed": 3541,
+    "quickswitcher_opened": 9381,
+    "quickswitcher_result_selected": 7457,
+    "reaction_picker_opened": 2,
+    "ready_payload_received": 37778,
+    "receive_friend_suggestion": 82,
+    "register": 1,
+    "relationship_metadata_updated": 9,
+    "relationship_sync_flow": 46,
+    "remote_auth_confirm": 3,
+    "remote_auth_init": 3,
+    "remote_auth_login": 3,
+    "remove_channel_recipient": 150,
+    "remove_reaction": 301,
+    "reply_started": 6,
+    "resolve_invite": 763,
+    "ring_call": 1745,
+    "role_page_viewed": 62,
+    "role_subscription_listing_upsell_page_viewed_v3": 2,
+    "role_template_selected": 1,
+    "rpc_command_sent": 207,
+    "rpc_server_error_caught": 1,
+    "rpc_subscription_requested": 25,
+    "screenshare_finished": 1137,
+    "search_closed": 1762,
+    "search_opened": 7232,
+    "search_result_empty": 42,
+    "search_result_expanded": 134,
+    "search_result_selected": 2358,
+    "search_result_sort_changed": 400,
+    "search_result_viewed": 18659,
+    "search_started": 12954,
+    "send_message": 420528,
+    "sent_missed_message_email": 61,
+    "server_setup_cta_clicked": 2,
+    "session_end": 51724,
+    "session_start": 51811,
+    "settings_pane_viewed": 6793,
+    "show_tutorial": 31,
+    "sku_entitlement_created": 4,
+    "slash_command_used": 236,
+    "snowsgiving_page_cta_clicked": 3,
+    "soundpack_updated": 4,
+    "soundshare_attached": 564,
+    "soundshare_failed": 6,
+    "soundshare_transmitting": 605,
+    "spotify_auto_paused": 304,
+    "spotify_button_clicked": 72,
+    "spotify_listen_along_ended": 40,
+    "spotify_listen_along_started": 46,
+    "stage_discovery_exited": 14,
+    "stage_discovery_loaded": 11,
+    "start_call": 1545,
+    "start_listening": 38351,
+    "start_speaking": 32838,
+    "stop_ringing_call": 1434,
+    "stop_speaking": 122,
+    "store_directory_browse_viewed": 5,
+    "store_directory_card_interacted": 344,
+    "store_directory_exited": 84,
+    "store_directory_hero_viewed": 76,
+    "store_directory_viewed": 84,
+    "store_listing_exited": 21,
+    "store_listing_media_scrolled": 6,
+    "store_listing_viewed": 14,
+    "stream_report_problem": 1,
+    "stream_settings_update": 596,
+    "stream_warning_triggered": 45,
+    "streamer_mode_toggle": 7169,
+    "subscription_lazy_sync_user_perks": 3,
+    "subscription_period_scheduled": 50,
+    "text_area_cta_clicked": 7,
+    "text_copied": 7,
+    "text_in_voice_opened": 3,
+    "thread_browser_tab_changed": 15,
+    "thread_creation_started": 34,
+    "thread_nudge_shown": 70,
+    "tooltip_viewed": 41,
+    "transaction_completed": 53,
+    "update_connected_account": 6547,
+    "update_note": 50,
+    "update_relationship": 1230,
+    "update_streamer_mode_settings": 5,
+    "update_user_settings": 4876,
+    "update_user_settings_local": 3,
+    "upload_drag_and_drop_count": 121,
+    "upsell_clicked": 10,
+    "upsell_viewed": 19,
+    "user_account_updated": 73,
+    "user_attribution_received": 3,
+    "user_avatar_updated": 74,
+    "user_flow_transition": 4,
+    "user_phone_updated": 4,
+    "user_report_submitted": 21,
+    "user_settings_keybind_updated": 25718,
+    "user_settings_opened": 15,
+    "user_status_updated": 2,
+    "verify_account": 1,
+    "video_effect_updated": 1,
+    "video_input_initialized": 97,
+    "video_input_toggled": 4677,
+    "video_layout_toggled": 28255,
+    "video_spinner_shown": 234,
+    "video_spinner_shown_v2": 12,
+    "video_stream_ended": 5058,
+    "video_stream_started": 1477,
+    "videohook_initialized": 1562,
+    "view_as_roles_selected": 18,
+    "view_landing": 2,
+    "view_voice_channel": 1,
+    "voice_bottom_sheet_expanded": 4,
+    "voice_channel_selected": 6,
+    "voice_codec_detected": 21,
+    "voice_connect": 1227,
+    "voice_connection_connecting": 285,
+    "voice_connection_failure": 54,
+    "voice_connection_success": 8844,
+    "voice_disconnect": 8608,
+    "voice_processing": 202,
+    "voice_quality": 449,
+    "welcome_cta_clicked": 11
+  },
+  "message_analytics": {
+    "everyone_mentions": 286,
+    "friends": [
+      [
+        "084884193331823395",
+        {
+          "avatar": "084884193331823395",
+          "messages": 28226,
+          "name": "Friend A"
+        }
+      ],
+      [
+        "176498049935541124",
+        {
+          "avatar": "176498049935541124",
+          "messages": 21557,
+          "name": "Friend B"
+        }
+      ],
+      [
+        "238129229053781756",
+        {
+          "avatar": "238129229053781756",
+          "messages": 18328,
+          "name": "Friend C"
+        }
+      ],
+      [
+        "258391969851932221",
+        {
+          "avatar": "258391969851932221",
+          "messages": 12666,
+          "name": "Friend D"
+        }
+      ],
+      [
+        "264263661542936513",
+        {
+          "avatar": "264263661542936513",
+          "messages": 5601,
+          "name": "Person E"
+        }
+      ],
+      [
+        "901794539186960581",
+        {
+          "avatar": "901794539186960581",
+          "messages": 3213,
+          "name": "Person F"
+        }
+      ]
+    ],
+    "groups": [
+      [
+        "462990865302979751",
+        {
+          "messages": 28727,
+          "name": "Group A"
+        }
+      ],
+      [
+        "627648468513444786",
+        {
+          "messages": 16804,
+          "name": "Group B"
+        }
+      ],
+      [
+        "767075389279477600",
+        {
+          "messages": 2505,
+          "name": "Group C"
+        }
+      ],
+      [
+        "550521208544830209",
+        {
+          "messages": 1051,
+          "name": "Group D"
+        }
+      ],
+      [
+        "1026534440148664320",
+        {
+          "messages": 560,
+          "name": "Group E"
+        }
+      ],
+      [
+        "624550183739841716",
+        {
+          "messages": 200,
+          "name": "Group F"
+        }
+      ]
+    ],
+    "messages_to": {
+      "Friends": 195667,
+      "Nonfriends": 67302
+    },
+    "servers": [
+      [
+        "426332976435624447",
+        {
+          "messages": 26473,
+          "name": "Server A"
+        }
+      ],
+      [
+        "801831135345330836",
+        {
+          "messages": 15342,
+          "name": "Server B"
+        }
+      ],
+      [
+        "330542268612297273",
+        {
+          "messages": 14865,
+          "name": "Server C"
+        }
+      ],
+      [
+        "118720397016511724",
+        {
+          "messages": 10200,
+          "name": "Server D"
+        }
+      ],
+      [
+        "505090447426414801",
+        {
+          "messages": 4232,
+          "name": "Server E"
+        }
+      ],
+      [
+        "500612755016972867",
+        {
+          "messages": 1392,
+          "name": "Server F"
+        }
+      ]
+    ],
+    "total_length": 12284223,
+    "total_messages": 420528,
+    "total_messages_by": {
+      "DM": 262969,
+      "Group": 51600,
+      "Server": 27525
+    },
+    "total_words": 2217020
+  },
+  "payment_total": 20500,
+  "predicted_age": "18-24"
+}
